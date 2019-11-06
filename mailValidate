@@ -1,0 +1,23 @@
+function mailValidation(email){
+    let domainsList = ["gmail", "outlook", "hotmail"];
+    let domain = email.indexOf('@');
+    
+    if (domain < 0){
+        console.log("Email inválido");
+        return;
+    }
+
+    let user = email.substring(0, domain);
+    domain = email.substring(domain + 1, email.length);
+    
+    if (domain.indexOf('.') > 0 && user != ""){
+        domain = domain.substring(0, domain.indexOf('.'));
+
+        if (domainsList.indexOf(domain) >= 0)
+            console.log('Email Válido');
+        else console.log('Email inválido (domínio negado)')
+    }
+    else console.log("Email inválido");
+
+    return;
+}
